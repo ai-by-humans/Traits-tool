@@ -1,62 +1,61 @@
-/* Reset default margin and padding */
-body, h1, h2, p {
-  margin: 1%;
-  padding: 1%;
+/* Base styles */
+:root {
+  --primary-bg-color: #f1f1f1;
+  --text-center: center;
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
 }
 
-/* Apply a background color to the header */
+/* Resetting styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: #fff;
+}
+
+/* Header styles */
 header {
-  background-color: #633;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: var(--text-center);
   padding: 1rem;
-  text-align: center;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Style form sections */
-.row {
+/* Main content styles */
+section {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  padding: 1rem;
+}
+
+/* Footer styles */
+footer {
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: var(--text-center);
+  padding: 1rem;
+  box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings and paragraphs */
+h1, h2, p {
   margin-bottom: 1rem;
 }
 
-label {
-  width: 120px;
-  margin-right: 0.5rem;
-}
-
-select {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* Add responsive styles */
-@media screen and (max-width: 768px) {
-  .row {
-      flex-direction: column;
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  section {
+    padding: 0.5rem;
   }
-
-  label {
-      width: 100%;
-      margin-bottom: 0.5rem;
-  }
-
-  select {
-      width: 100%;
-      margin-bottom: 0.5rem;
-  }
-
-  button {
-      width: 100%;
+  header, footer {
+    padding: 0.5rem;
   }
 }
