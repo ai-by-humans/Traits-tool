@@ -8,6 +8,38 @@ const lovesSelect = document.getElementById("loves");
 const hatesSelect = document.getElementById("hates");
 const summarySection = document.getElementById("summary");
 
+// Function to populate a select element from a .txt file
+async function populateSelect(selectElementId, txtFilePath) {
+  const selectElement = document.getElementById(selectElementId);
+  
+  // Fetch the .txt file
+  const response = await fetch(txtFilePath);
+  const text = await response.text();
+  
+  // Split the text by lines and populate the select element
+  const lines = text.split('\n');
+  lines.forEach(line => {
+    const option = document.createElement('option');
+    option.value = line;
+    option.text = line;
+    selectElement.add(option);
+  });
+}
+
+// Populate the select elements
+populateSelect('name', './data/name.txt');
+populateSelect('age', './data/age.txt');
+populateSelect('body', './data/body.txt');
+populateSelect('mind', './data/mind.txt');
+populateSelect('personality', './data/personality.txt');
+populateSelect('loves', './data/loves.txt');
+populateSelect('hates', './data/hates.txt');
+
+// Existing functions for summary
+// ... (addSelected and showSummary functions here)
+
+
+
 /**
  * Function to add the selected option to the summary section.
  * @param {string} selectId - The ID of the select element.
