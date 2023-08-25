@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traits Selection</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Traits Selection</h1>
+    </header>
+    <form onsubmit="return showSummary();">
+        <section class="row">
+            <label for="name">Name:</label>
+            <select id="name" aria-label="Select Name"></select>
+            <button type="button" onclick="addSelected('name')">Add</button>
+        </section>
+        <section class="row">
+            <label for="age">Age:</label>
+            <select id="age" aria-label="Select Age"></select>
+            <button type="button" onclick="addSelected('age')">Add</button>
+        </section>
+        <section class="row">
+            <label for="body">Body:</label>
+            <select id="body" aria-label="Select Body"></select>
+            <button type="button" onclick="addSelected('body')">Add</button>
+        </section>
+        <section class="row">
+            <label for="mind">Mind:</label>
+            <select id="mind" aria-label="Select Mind"></select>
+            <button type="button" onclick="addSelected('mind')">Add</button>
+        </section>
+        <section class="row">
+            <label for="personality">Personality:</label>
+            <select id="personality" aria-label="Select Personality"></select>
+            <button type="button" onclick="addSelected('personality')">Add</button>
+        </section>
+        <section class="row">
+            <label for="loves">Loves:</label>
+            <select id="loves" aria-label="Select Loves"></select>
+            <button type="button" onclick="addSelected('loves')">Add</button>
+        </section>
+        <section class="row">
+            <label for="hates">Hates:</label>
+            <select id="hates" aria-label="Select Hates"></select>
+            <button type="button" onclick="addSelected('hates')">Add</button>
+        </section>
+        <input type="submit" value="Submit">
+    </form>
+    <section id="summary">
+        <h2>Summary:</h2>
+        <!-- Summary content will be added here -->
+    </section>
+    <footer>
+        <p>&copy; 2023 Traits Selection</p>
+    </footer>
+</body>
+</html>

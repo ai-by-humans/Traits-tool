@@ -1,0 +1,62 @@
+/* Reset default margin and padding */
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply a background color to the header */
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Style form sections */
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+label {
+  width: 120px;
+  margin-right: 0.5rem;
+}
+
+select {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Add responsive styles */
+@media screen and (max-width: 768px) {
+  .row {
+      flex-direction: column;
+  }
+
+  label {
+      width: 100%;
+      margin-bottom: 0.5rem;
+  }
+
+  select {
+      width: 100%;
+      margin-bottom: 0.5rem;
+  }
+
+  button {
+      width: 100%;
+  }
+}
