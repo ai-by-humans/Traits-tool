@@ -56,5 +56,17 @@
     <footer>
         <p>&copy; 2023 Traits Selection</p>
     </footer>
+    <!-- Added for smoother word cloud interactions -->
+    <script>
+        let targetX = 0, currentX = 0, easing = 0.05;
+        document.addEventListener('mousemove', function(event) {
+            targetX = event.clientX;
+            let dx = targetX - currentX;
+            if (Math.abs(dx) > 1) {
+                currentX += dx * easing;
+            }
+            // ... (rest of your existing code, using `currentX` instead of `event.clientX`)
+        });
+    </script>
 </body>
 </html>

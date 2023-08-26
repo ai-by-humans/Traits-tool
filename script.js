@@ -23,7 +23,7 @@ async function populateDiv(divElementId, txtFilePath) {
     word.className = 'word-item';
     word.textContent = line;
     word.addEventListener('click', function() {
-      addSelected(divElementId, line);
+      addSelected(divElementId, line, word);
     });
     divElement.appendChild(word);
   });
@@ -38,11 +38,12 @@ populateDiv('personality', './data/personality.txt');
 populateDiv('loves', './data/loves.txt');
 populateDiv('hates', './data/hates.txt');
 
-// Function to add the clicked word to the summary section
-function addSelected(divId, word) {
+// Function to add the clicked word to the summary section and remove it from the word cloud
+function addSelected(divId, word, wordElement) {
   const summaryItem = document.createElement("p");
   summaryItem.textContent = word;
   summarySection.appendChild(summaryItem);
+  wordElement.remove();  // Remove the clicked word from the word cloud
 }
 
 // Function to display the summary of clicked words
@@ -53,44 +54,3 @@ function showSummary() {
   // Prevent the form from being submitted
   return false;
 }
-
-let lastX = 0;
-let lastY = 0;
-
-// Function to dynamically scale and move words based on mouse movement and proximity
-document.addEventListener('mousemove', function(event) {
-  const x = (event.clientX + lastX) / 2;
-  const y = (event.clientY + lastY) / 2;
-
-  lastX = x;
-  lastY = y;
-
-  document.querySelectorAll('.word-item').forEach(word1 => {
-    let dxSum = 0;
-    let dySum = 0;
-
-    // Calculate the effect of other words on this word
-    document.querySelectorAll('.word-item').forEach(word2 => {
-      if (word1 !== word2) {
-        const rect1 = word1.getBoundingClientRect();
-        const rect2 = word2.getBoundingClientRect();
-        const dx = rect1.left - rect2.left;
-        const dy = rect1.top - rect2.top;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < 50) {
-          dxSum += dx / distance;
-          dySum += dy / distance;
-        }
-      }
-    });
-
-    const rect = word1.getBoundingClientRect();
-    const dx = rect.left + rect.width / 2 - x;
-    const dy = rect.top + rect.height / 2 - y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
-    const scale = Math.min(20 / distance, 1.2);
-
-    word1.style.transform = `translate(${dxSum * 5}px, ${dySum * 5}px) scale(${scale})`;
-  });
-});
