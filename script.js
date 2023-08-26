@@ -81,6 +81,6 @@ function showSummary() {
     addSelected("loves");
     addSelected("hates");
     
-    // Prevent the form from being submitted
+    // Prevent t the form from being submitted
     return false;
 }
