@@ -31,3 +31,5 @@ https://raw.githubusercontent.com/ai-by-humans/Traits-tool/main/index.html
 https://raw.githubusercontent.com/ai-by-humans/Traits-tool/main/script.js
 
 https://raw.githubusercontent.com/ai-by-humans/Traits-tool/main/styles.css
+
+find a way to make <section class="row">flex scali n the website 

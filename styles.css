@@ -1,3 +1,42 @@
+/* Line 1: Styling for expanded word clouds */
+.expand {
+  transform: scale(1.5);
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Line 7: Keyframes for fade-in and fade-out animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Line 19: Keyframes for dynamic movement animation */
+@keyframes moveDynamically {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Line 31: Word styling that allows for animation */
+.word {
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+
 /* Base styles */
 :root {
   --primary-bg-color: #f1f1f1;

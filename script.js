@@ -1,3 +1,37 @@
+// Line 1: Initialize variables
+let wordClouds = document.querySelectorAll('.word-cloud');
+
+// Line 5: Function to expand word cloud on hover or click
+wordClouds.forEach((wordCloud) => {
+  wordCloud.addEventListener('mouseover', function() {
+    this.classList.add('expand');
+  });
+  wordCloud.addEventListener('mouseout', function() {
+    this.classList.remove('expand');
+  });
+  wordCloud.addEventListener('click', function() {
+    this.classList.toggle('expand');
+  });
+});
+
+// Line 19: Function for dynamic animation of words
+function animateWords(wordCloud) {
+  let words = wordCloud.querySelectorAll('.word');
+  words.forEach((word) => {
+    word.addEventListener('animationend', function() {
+      this.style.animation = '';
+    });
+    let animationType = Math.random() > 0.5 ? 'fadeInOut' : 'moveDynamically';
+    let animationDuration = Math.floor(Math.random() * 5 + 3);
+    word.style.animation = `${animationType} ${animationDuration}s infinite`;
+  });
+}
+
+// Line 33: Apply animations to all word clouds
+wordClouds.forEach((wordCloud) => {
+  animateWords(wordCloud);
+});
+
 // Initialize global variables for each form element
 const nameDiv = document.getElementById("name");
 const ageDiv = document.getElementById("age");
