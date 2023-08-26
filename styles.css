@@ -50,6 +50,34 @@ h1, h2, p {
   margin-bottom: 1rem;
 }
 
+/* Word Cloud Styles */
+.word-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--primary-color);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.word-item {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+/* Existing .word-item:hover styles */
+.word-item:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.2); /* New line to scale the word */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Updated transition */
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   section {
